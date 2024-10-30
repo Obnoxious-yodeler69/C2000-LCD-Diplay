@@ -1,0 +1,423 @@
+******************************************************************************
+             TMS320C2000 Linker PC v22.6.1                     
+******************************************************************************
+>> Linked Tue Oct 29 20:11:39 2024
+
+OUTPUT FILE NAME:   <SPITRY.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00008e07
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  BEGIN                 00000000   00000002  00000000  00000002  RWIX
+  RAMM0                 00000050   000003b0  0000001e  00000392  RWIX
+  RAML0_L3              00008000   00002000  00000f0f  000010f1  RWIX
+  FPUTABLES             003fd860   000006a0  00000000  000006a0  RWIX
+  IQTABLES              003fdf00   00000b50  00000000  00000b50  RWIX
+  IQTABLES2             003fea50   0000008c  00000000  0000008c  RWIX
+  IQTABLES3             003feadc   000000aa  00000000  000000aa  RWIX
+  BOOTROM               003ff3b0   00000c10  00000000  00000c10  RWIX
+  RESET                 003fffc0   00000002  00000000  00000002  RWIX
+
+PAGE 1:
+  BOOT_RSVD             00000002   0000004e  00000000  0000004e  RWIX
+  RAMM1                 00000400   00000400  00000300  00000100  RWIX
+  RAML4                 0000a000   00002000  00001a16  000005ea  RWIX
+  RAML5                 0000c000   00002000  00000000  00002000  RWIX
+  RAML6                 0000e000   00002000  00000000  00002000  RWIX
+  RAML7                 00010000   00002000  00000000  00002000  RWIX
+  RAML8                 00012000   00002000  00000000  00002000  RWIX
+  USB_RAM               00040000   00000800  00000000  00000800  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.cinit     0    00000050    0000001e     
+                  00000050    0000000e     rts2800_fpu32.lib : exit.c.obj (.cinit)
+                  0000005e    00000005                       : _lock.c.obj (.cinit:__lock)
+                  00000063    00000005                       : _lock.c.obj (.cinit:__unlock)
+                  00000068    00000004     main.obj (.cinit)
+                  0000006c    00000002     --HOLE-- [fill = 0]
+
+.text      0    00008000    00000f0f     
+                  00008000    00000308     kitronix320x240x16_ssd2119_spi.obj (.text)
+                  00008308    000002cc     string.obj (.text)
+                  000085d4    0000020a     line.obj (.text)
+                  000087de    00000158     image.obj (.text)
+                  00008936    00000115     rectangle.obj (.text)
+                  00008a4b    0000010a     context.obj (.text)
+                  00008b55    000000f8     imageButton.obj (.text)
+                  00008c4d    000000a6     HAL_MSP_EXP432P401R_KITRONIX320X240_SSD2119_SPI.obj (.text)
+                  00008cf3    00000092     main.obj (.text)
+                  00008d85    00000082     display.obj (.text)
+                  00008e07    00000056     rts2800_fpu32.lib : boot28.asm.obj (.text)
+                  00008e5d    0000002a                       : l_div28.asm.obj (.text)
+                  00008e87    00000029                       : exit.c.obj (.text)
+                  00008eb0    00000024                       : cpy_tbl.c.obj (.text)
+                  00008ed4    0000001d                       : memcpy.c.obj (.text)
+                  00008ef1    00000012                       : args_main.c.obj (.text)
+                  00008f03    00000009                       : _lock.c.obj (.text)
+                  00008f0c    00000002                       : pre_init.c.obj (.text)
+                  00008f0e    00000001                       : startup.c.obj (.text)
+
+.pinit     0    00000050    00000000     UNINITIALIZED
+
+.reset     0    003fffc0    00000002     DSECT
+                  003fffc0    00000002     rts2800_fpu32.lib : boot28.asm.obj (.reset)
+
+.stack     1    00000400    00000300     UNINITIALIZED
+                  00000400    00000300     --HOLE--
+
+.econst    1    0000a000    00001796     
+                  0000a000    0000173e     TI_platform_bar_red.obj (.econst:_pixel_TI_platform_bar_red4BPP_UNCOMP)
+                  0000b73e    00000020     TI_platform_bar_red.obj (.econst:_palette_TI_platform_bar_red4BPP_UNCOMP)
+                  0000b75e    0000001a     main.obj (.econst:.string)
+                  0000b778    00000016     kitronix320x240x16_ssd2119_spi.obj (.econst:_g_sKitronix320x240x16_SSD2119)
+                  0000b78e    00000008     TI_platform_bar_red.obj (.econst:_TI_platform_bar_red4BPP_UNCOMP)
+
+.ebss      1    0000b796    00000280     UNINITIALIZED
+                  0000b796    00000006     rts2800_fpu32.lib : exit.c.obj (.ebss)
+                  0000b79c    00000002                       : _lock.c.obj (.ebss:__lock)
+                  0000b79e    00000002                       : _lock.c.obj (.ebss:__unlock)
+                  0000b7a0    00000020     --HOLE--
+                  0000b7c0    00000200     image.obj (.ebss:_g_pulConvertedPalette)
+                  0000b9c0    00000056     main.obj (.ebss)
+
+MODULE SUMMARY
+
+       Module                                                code   initialized data   uninitialized data
+       ------                                                ----   ----------------   ------------------
+    .\
+       main.obj                                              146    30                 86                
+    +--+-----------------------------------------------------+------+------------------+--------------------+
+       Total:                                                146    30                 86                
+                                                                                                         
+    .\GrLib\grlib\
+       image.obj                                             344    0                  512               
+       string.obj                                            716    0                  0                 
+       line.obj                                              522    0                  0                 
+       rectangle.obj                                         277    0                  0                 
+       context.obj                                           266    0                  0                 
+       imageButton.obj                                       248    0                  0                 
+       display.obj                                           130    0                  0                 
+    +--+-----------------------------------------------------+------+------------------+--------------------+
+       Total:                                                2503   0                  512               
+                                                                                                         
+    .\Images\
+       TI_platform_bar_red.obj                               0      5990               0                 
+    +--+-----------------------------------------------------+------+------------------+--------------------+
+       Total:                                                0      5990               0                 
+                                                                                                         
+    .\LcdDriver\
+       kitronix320x240x16_ssd2119_spi.obj                    776    22                 0                 
+       HAL_MSP_EXP432P401R_KITRONIX320X240_SSD2119_SPI.obj   166    0                  0                 
+    +--+-----------------------------------------------------+------+------------------+--------------------+
+       Total:                                                942    22                 0                 
+                                                                                                         
+    C:\ti\ccs1280\ccs\tools\compiler\ti-cgt-c2000_22.6.1.LTS\lib\rts2800_fpu32.lib
+       boot28.asm.obj                                        86     0                  0                 
+       exit.c.obj                                            41     14                 6                 
+       l_div28.asm.obj                                       42     0                  0                 
+       cpy_tbl.c.obj                                         36     0                  0                 
+       memcpy.c.obj                                          29     0                  0                 
+       _lock.c.obj                                           9      10                 4                 
+       args_main.c.obj                                       18     0                  0                 
+       pre_init.c.obj                                        2      0                  0                 
+       startup.c.obj                                         1      0                  0                 
+    +--+-----------------------------------------------------+------+------------------+--------------------+
+       Total:                                                264    24                 10                
+                                                                                                         
+       Stack:                                                0      0                  768               
+    +--+-----------------------------------------------------+------+------------------+--------------------+
+       Grand Total:                                          3855   6066               1376              
+
+
+GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
+
+address     data page           name
+--------    ----------------    ----
+00000400      10 (00000400)     __stack
+
+0000b778     2dd (0000b740)     _g_sKitronix320x240x16_SSD2119
+
+0000b78e     2de (0000b780)     _TI_platform_bar_red4BPP_UNCOMP
+0000b796     2de (0000b780)     ___TI_enable_exit_profile_output
+0000b798     2de (0000b780)     ___TI_cleanup_ptr
+0000b79a     2de (0000b780)     ___TI_dtors_ptr
+0000b79c     2de (0000b780)     __lock
+0000b79e     2de (0000b780)     __unlock
+
+0000b9c0     2e7 (0000b9c0)     _g_ranDemo
+0000b9c1     2e7 (0000b9c0)     _g_sTouchContext
+0000b9c4     2e7 (0000b9c0)     _primitiveButton
+0000b9d0     2e7 (0000b9c0)     _imageButton
+0000b9dc     2e7 (0000b9c0)     _g_sContext
+0000b9ea     2e7 (0000b9c0)     _yesButton
+
+0000ba00     2e8 (0000ba00)     _noButton
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+page  address   name                                     
+----  -------   ----                                     
+0     00008000  .text                                    
+0     00008e87  C$$EXIT                                  
+0     00008e5d  L$$DIV                                   
+0     00008e6c  L$$MOD                                   
+0     00008e7a  UL$$DIV                                  
+0     00008e81  UL$$MOD                                  
+n/a   UNDEFED   _GpioCtrlRegs                            
+n/a   UNDEFED   _GpioDataRegs                            
+0     00008b29  _Graphics_clearDisplay                   
+0     00008dfa  _Graphics_clearDisplayOnDisplay          
+0     00008dac  _Graphics_drawHorizontalLineOnDisplay    
+0     0000880a  _Graphics_drawImage                      
+0     00008b55  _Graphics_drawImageButton                
+0     0000872b  _Graphics_drawLine                       
+0     000085d4  _Graphics_drawLineH                      
+0     0000860f  _Graphics_drawLineV                      
+0     00008d93  _Graphics_drawMultiplePixelsOnDisplay    
+0     00008b35  _Graphics_drawPixel                      
+0     00008d85  _Graphics_drawPixelOnDisplay             
+0     00008936  _Graphics_drawRectangle                  
+0     00008c09  _Graphics_drawReleasedImageButton        
+0     00008bc2  _Graphics_drawSelectedImageButton        
+0     0000838f  _Graphics_drawString                     
+0     0000859d  _Graphics_drawStringCentered             
+0     00008dc0  _Graphics_drawVerticalLineOnDisplay      
+0     0000897f  _Graphics_fillRectangle                  
+0     00008dd3  _Graphics_fillRectangleOnDisplay         
+0     00008b22  _Graphics_flushBuffer                    
+0     00008def  _Graphics_flushOnDisplay                 
+0     00008b17  _Graphics_getDisplayHeight               
+0     00008b11  _Graphics_getDisplayWidth                
+0     00008aea  _Graphics_getFontBaseline                
+0     00008b07  _Graphics_getFontHeight                  
+0     00008b0c  _Graphics_getFontMaxWidth                
+0     00008b1d  _Graphics_getHeightOfDisplay             
+0     00008907  _Graphics_getImageColors                 
+0     0000890c  _Graphics_getImageHeight                 
+0     00008911  _Graphics_getImageWidth                  
+0     0000892c  _Graphics_getOffScreen8BPPSize           
+0     00008916  _Graphics_getOffscreen1BppImageSize      
+0     00008921  _Graphics_getOffscreen4BppImageSize      
+0     000089e8  _Graphics_getRectangleIntersection       
+0     00008594  _Graphics_getStringBaseline              
+0     000085c2  _Graphics_getStringHeight                
+0     000085cb  _Graphics_getStringMaxWidth              
+0     00008328  _Graphics_getStringWidth                 
+0     00008b50  _Graphics_getWidthOfDisplay              
+0     00008a4b  _Graphics_initContext                    
+0     00008ba4  _Graphics_isImageButtonSelected          
+0     00008a32  _Graphics_isPointWithinRectangle         
+0     000089cc  _Graphics_isRectangleOverlap             
+0     00008ac0  _Graphics_setBackgroundColor             
+0     00008ad0  _Graphics_setBackgroundColorTranslated   
+0     00008a70  _Graphics_setClipRegion                  
+0     00008adc  _Graphics_setFont                        
+0     00008aef  _Graphics_setForegroundColor             
+0     00008afd  _Graphics_setForegroundColorTranslated   
+0     00008de2  _Graphics_translateColorOnDisplay        
+0     00008cd3  _HAL_LCD_delay                           
+0     00008cc4  _HAL_LCD_deselectLCD                     
+0     00008c4d  _HAL_LCD_initLCD                         
+0     00008cb5  _HAL_LCD_selectLCD                       
+0     00008c79  _HAL_LCD_writeCommand                    
+0     00008c97  _HAL_LCD_writeData                       
+0     00008000  _Kitronix320x240x16_SSD2119Init          
+0     0000820c  _Kitronix320x240x16_SSD2119LineDraw      
+0     000080e0  _Kitronix320x240x16_SSD2119_setCursorLtoR
+0     000080fe  _Kitronix320x240x16_SSD2119_setCursorTtoB
+n/a   UNDEFED   _SpiaRegs                                
+n/a   UNDEFED   _SysCtrlRegs                             
+1     0000b78e  _TI_platform_bar_red4BPP_UNCOMP          
+1     00000700  __STACK_END                              
+abs   00000300  __STACK_SIZE                             
+1     0000b798  ___TI_cleanup_ptr                        
+1     0000b79a  ___TI_dtors_ptr                          
+1     0000b796  ___TI_enable_exit_profile_output         
+abs   ffffffff  ___TI_pprof_out_hndl                     
+abs   ffffffff  ___TI_prof_data_size                     
+abs   ffffffff  ___TI_prof_data_start                    
+abs   ffffffff  ___binit__                               
+abs   ffffffff  ___c_args__                              
+0     00000050  ___cinit__                               
+n/a   UNDEFED   ___enable_interrupt                      
+0     00008f0f  ___etext__                               
+abs   ffffffff  ___pinit__                               
+0     00008000  ___text__                                
+0     00008ef1  __args_main                              
+1     0000b79c  __lock                                   
+0     00008f0b  __nop                                    
+0     00008f07  __register_lock                          
+0     00008f03  __register_unlock                        
+1     00000400  __stack                                  
+0     00008f0e  __system_post_cinit                      
+0     00008f0c  __system_pre_init                        
+1     0000b79e  __unlock                                 
+0     00008e87  _abort                                   
+n/a   UNDEFED   _boardInit                               
+0     00008e07  _c_int00                                 
+n/a   UNDEFED   _clockInit                               
+0     00008eb0  _copy_in                                 
+0     00008d4b  _drawMainMenu                            
+0     00008e89  _exit                                    
+1     0000b9c0  _g_ranDemo                               
+1     0000b9dc  _g_sContext                              
+n/a   UNDEFED   _g_sFontCmss20b                          
+1     0000b778  _g_sKitronix320x240x16_SSD2119           
+1     0000b9c1  _g_sTouchContext                         
+1     0000b9d0  _imageButton                             
+n/a   UNDEFED   _initializeDemoButtons                   
+0     00008cf3  _main                                    
+0     00008ed4  _memcpy                                  
+1     0000ba00  _noButton                                
+1     0000b9c4  _primitiveButton                         
+n/a   UNDEFED   _runImagesDemo                           
+n/a   UNDEFED   _runPrimitivesDemo                       
+n/a   UNDEFED   _touch_initInterface                     
+n/a   UNDEFED   _touch_updateCurrentTouch                
+n/a   UNDEFED   _watchdogInit                            
+1     0000b9ea  _yesButton                               
+abs   ffffffff  binit                                    
+0     00000050  cinit                                    
+0     00008f0f  etext                                    
+abs   ffffffff  pinit                                    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+page  address   name                                     
+----  -------   ----                                     
+0     00000050  ___cinit__                               
+0     00000050  cinit                                    
+0     00008000  .text                                    
+0     00008000  _Kitronix320x240x16_SSD2119Init          
+0     00008000  ___text__                                
+0     000080e0  _Kitronix320x240x16_SSD2119_setCursorLtoR
+0     000080fe  _Kitronix320x240x16_SSD2119_setCursorTtoB
+0     0000820c  _Kitronix320x240x16_SSD2119LineDraw      
+0     00008328  _Graphics_getStringWidth                 
+0     0000838f  _Graphics_drawString                     
+0     00008594  _Graphics_getStringBaseline              
+0     0000859d  _Graphics_drawStringCentered             
+0     000085c2  _Graphics_getStringHeight                
+0     000085cb  _Graphics_getStringMaxWidth              
+0     000085d4  _Graphics_drawLineH                      
+0     0000860f  _Graphics_drawLineV                      
+0     0000872b  _Graphics_drawLine                       
+0     0000880a  _Graphics_drawImage                      
+0     00008907  _Graphics_getImageColors                 
+0     0000890c  _Graphics_getImageHeight                 
+0     00008911  _Graphics_getImageWidth                  
+0     00008916  _Graphics_getOffscreen1BppImageSize      
+0     00008921  _Graphics_getOffscreen4BppImageSize      
+0     0000892c  _Graphics_getOffScreen8BPPSize           
+0     00008936  _Graphics_drawRectangle                  
+0     0000897f  _Graphics_fillRectangle                  
+0     000089cc  _Graphics_isRectangleOverlap             
+0     000089e8  _Graphics_getRectangleIntersection       
+0     00008a32  _Graphics_isPointWithinRectangle         
+0     00008a4b  _Graphics_initContext                    
+0     00008a70  _Graphics_setClipRegion                  
+0     00008ac0  _Graphics_setBackgroundColor             
+0     00008ad0  _Graphics_setBackgroundColorTranslated   
+0     00008adc  _Graphics_setFont                        
+0     00008aea  _Graphics_getFontBaseline                
+0     00008aef  _Graphics_setForegroundColor             
+0     00008afd  _Graphics_setForegroundColorTranslated   
+0     00008b07  _Graphics_getFontHeight                  
+0     00008b0c  _Graphics_getFontMaxWidth                
+0     00008b11  _Graphics_getDisplayWidth                
+0     00008b17  _Graphics_getDisplayHeight               
+0     00008b1d  _Graphics_getHeightOfDisplay             
+0     00008b22  _Graphics_flushBuffer                    
+0     00008b29  _Graphics_clearDisplay                   
+0     00008b35  _Graphics_drawPixel                      
+0     00008b50  _Graphics_getWidthOfDisplay              
+0     00008b55  _Graphics_drawImageButton                
+0     00008ba4  _Graphics_isImageButtonSelected          
+0     00008bc2  _Graphics_drawSelectedImageButton        
+0     00008c09  _Graphics_drawReleasedImageButton        
+0     00008c4d  _HAL_LCD_initLCD                         
+0     00008c79  _HAL_LCD_writeCommand                    
+0     00008c97  _HAL_LCD_writeData                       
+0     00008cb5  _HAL_LCD_selectLCD                       
+0     00008cc4  _HAL_LCD_deselectLCD                     
+0     00008cd3  _HAL_LCD_delay                           
+0     00008cf3  _main                                    
+0     00008d4b  _drawMainMenu                            
+0     00008d85  _Graphics_drawPixelOnDisplay             
+0     00008d93  _Graphics_drawMultiplePixelsOnDisplay    
+0     00008dac  _Graphics_drawHorizontalLineOnDisplay    
+0     00008dc0  _Graphics_drawVerticalLineOnDisplay      
+0     00008dd3  _Graphics_fillRectangleOnDisplay         
+0     00008de2  _Graphics_translateColorOnDisplay        
+0     00008def  _Graphics_flushOnDisplay                 
+0     00008dfa  _Graphics_clearDisplayOnDisplay          
+0     00008e07  _c_int00                                 
+0     00008e5d  L$$DIV                                   
+0     00008e6c  L$$MOD                                   
+0     00008e7a  UL$$DIV                                  
+0     00008e81  UL$$MOD                                  
+0     00008e87  C$$EXIT                                  
+0     00008e87  _abort                                   
+0     00008e89  _exit                                    
+0     00008eb0  _copy_in                                 
+0     00008ed4  _memcpy                                  
+0     00008ef1  __args_main                              
+0     00008f03  __register_unlock                        
+0     00008f07  __register_lock                          
+0     00008f0b  __nop                                    
+0     00008f0c  __system_pre_init                        
+0     00008f0e  __system_post_cinit                      
+0     00008f0f  ___etext__                               
+0     00008f0f  etext                                    
+1     00000400  __stack                                  
+1     00000700  __STACK_END                              
+1     0000b778  _g_sKitronix320x240x16_SSD2119           
+1     0000b78e  _TI_platform_bar_red4BPP_UNCOMP          
+1     0000b796  ___TI_enable_exit_profile_output         
+1     0000b798  ___TI_cleanup_ptr                        
+1     0000b79a  ___TI_dtors_ptr                          
+1     0000b79c  __lock                                   
+1     0000b79e  __unlock                                 
+1     0000b9c0  _g_ranDemo                               
+1     0000b9c1  _g_sTouchContext                         
+1     0000b9c4  _primitiveButton                         
+1     0000b9d0  _imageButton                             
+1     0000b9dc  _g_sContext                              
+1     0000b9ea  _yesButton                               
+1     0000ba00  _noButton                                
+abs   00000300  __STACK_SIZE                             
+abs   ffffffff  ___TI_pprof_out_hndl                     
+abs   ffffffff  ___TI_prof_data_size                     
+abs   ffffffff  ___TI_prof_data_start                    
+abs   ffffffff  ___binit__                               
+abs   ffffffff  ___c_args__                              
+abs   ffffffff  ___pinit__                               
+abs   ffffffff  binit                                    
+abs   ffffffff  pinit                                    
+n/a   UNDEFED   _GpioCtrlRegs                            
+n/a   UNDEFED   _GpioDataRegs                            
+n/a   UNDEFED   _SpiaRegs                                
+n/a   UNDEFED   _SysCtrlRegs                             
+n/a   UNDEFED   ___enable_interrupt                      
+n/a   UNDEFED   _boardInit                               
+n/a   UNDEFED   _clockInit                               
+n/a   UNDEFED   _g_sFontCmss20b                          
+n/a   UNDEFED   _initializeDemoButtons                   
+n/a   UNDEFED   _runImagesDemo                           
+n/a   UNDEFED   _runPrimitivesDemo                       
+n/a   UNDEFED   _touch_initInterface                     
+n/a   UNDEFED   _touch_updateCurrentTouch                
+n/a   UNDEFED   _watchdogInit                            
+
+[123 symbols]
